@@ -1,0 +1,152 @@
+
+.acc {
+   &-container {
+      display: none;
+      @include breakpoint(laptop) {
+         display: block;
+      }
+     padding: 0;
+     &.acc-container-table {
+       .acc-content {
+         max-height: 100%;
+         height: 100%;
+         overflow: inherit;
+       }
+     }
+   }
+   &-btn {
+     cursor: pointer;
+     &:hover,
+     &.is-open {
+       opacity: 1;
+     }
+   }
+   &-btn,
+   &-title {
+     width: 100%;
+     font-family: $Roboto-Bold-font;
+     font-size: 15px;
+      line-height: 1;
+     padding: 8px 0;
+     color: $color-black;
+     background: inherit;
+     border: none;
+     outline: none;
+     text-align: left;
+     transition: all 0.4s linear;
+     position: relative;
+     
+     svg {
+       position: absolute;
+       margin: auto 0;
+       float: left;
+       top: 0;
+       bottom: 0;
+       right: 10px;
+       transition: all 0.35s ease;
+     }
+     &.is-open {
+       span {
+         transform: rotate(-90deg);
+       }
+     }
+   }
+   &-question {
+     border-bottom: $border-bottom;
+     &:last-child {
+       border-bottom: none;
+     }
+   }
+   &-content {
+     max-height: 0;
+     color: grey;
+     overflow: hidden;
+     transition: all 0.3s ease-in-out;
+     &__text {
+       padding-bottom: 20px;
+     }
+   }
+ }
+ 
+ .accordion {
+   width: 100%;
+   padding: 4px 0;
+   border-top: $border-bottom;
+   
+   &-item {
+     border-bottom: $border-bottom;
+     @include breakpoint(laptop) {
+       padding: 0 0 0 10px;
+     }
+     &:last-child {
+       border-bottom: none;
+     }
+     &-header {
+      font-family: $Roboto-Bold-font;
+       font-size: 15px;
+      line-height: 1;
+       color: $color-black;
+       padding: 8px 0;
+       @include flex-v-center;
+       position: relative;
+       cursor: pointer;
+       svg {
+         width: 11px;
+         height: 13px;
+         margin-left: auto;
+       }
+       &.active {
+         padding-top: 5px;
+         padding-bottom: 3px;
+         svg {
+           transform: rotate(180deg);
+         }
+       }
+       p {
+         font-size: 15px;
+         line-height: 1;
+       }
+     }
+     &-body {
+       max-height: 0;
+       overflow: hidden;
+       transition: all 0.3s ease-out;
+       &-content {
+         padding: 0 10px 30px 30px;
+         max-width: 890px;
+         color: $color-black;
+         margin-right: 0;
+         @include breakpoint(laptop) {
+           padding: 0 10px 0 10px;
+         }
+         .download__link {
+           font-size: 14px;
+           @include flex-w-row;
+           align-items: center;
+           flex-wrap: nowrap;
+           column-gap: 10px;
+           color: grey;
+           padding: 3px 0;
+           span {
+             @include flex-all-center;
+             flex-shrink: 0;
+             height: 20px;
+             width: 20px;
+             border: 1px solid grey;
+             border-radius: 20px;
+             svg {
+               width: 8px;
+               height: 10px;
+             }
+           }
+           svg {
+             path {
+               stroke: grey;
+             }
+           }
+         }
+       }
+     }
+   }
+ }
+ 
